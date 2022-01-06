@@ -1,0 +1,17 @@
+package hasjamon.b4badvancements.listeners;
+
+import hasjamon.b4badvancements.B4BAdvancements;
+import hasjamon.b4badvancements.advancements.RemoveClaimAdvancement;
+import hasjamon.block4block.events.ClaimRemovedEvent;
+import org.bukkit.event.EventHandler;
+import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
+
+public class ClaimRemoved implements Listener {
+    @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
+    public void onClaimRemoved(ClaimRemovedEvent e) {
+        if(!e.wasMember){
+            B4BAdvancements.awardCriteria(e.player, RemoveClaimAdvancement.ID, "0");
+        }
+    }
+}
