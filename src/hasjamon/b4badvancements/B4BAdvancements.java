@@ -1,6 +1,7 @@
 package hasjamon.b4badvancements;
 
 import com.comphenix.protocol.utility.MinecraftReflection;
+import com.pay4players.Pay4PlayersAPI;
 import hasjamon.b4badvancements.advancements.*;
 import hasjamon.b4badvancements.listeners.*;
 import net.minecraft.locale.LocaleLanguage;
@@ -14,8 +15,12 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
+import java.io.IOException;
+import java.util.logging.Logger;
+
 public class B4BAdvancements extends JavaPlugin implements Listener {
     public static boolean canUseReflection = true;
+    private static boolean canGivePoints = true;
     private static B4BAdvancements plugin;
     private final PluginManager pluginManager = getServer().getPluginManager();
     private final AdvancementManager advManager = new AdvancementManager(this);
@@ -47,12 +52,47 @@ public class B4BAdvancements extends JavaPlugin implements Listener {
         }
     }
 
+    public static void givePoints(Player player, int amount){
+        String uuid = String.valueOf(player.getUniqueId());
+        Logger log = plugin.getLogger();
+        long now = System.nanoTime();
+
+        log.info("Transfer " + now + ": " + amount + " points to " + uuid + " (" + player.getName() + ")");
+
+        if(canGivePoints) {
+            Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
+                try {
+                    int statusCode = Pay4PlayersAPI.transferPoints(uuid, amount);
+
+                    switch(statusCode) {
+                        case 200 -> log.info("Transfer " + now + " succeeded");
+                        case 400 -> log.warning("Transfer" + now + " failed: Malformed JSON");
+                        case 401 -> log.warning("Transfer" + now + " failed: Unknown/invalid token");
+                        case 402 -> log.warning("Transfer" + now + " failed: Insufficient points");
+                        case 403 -> log.warning("Transfer" + now + " failed: Sender and recipient were the same");
+                        case 502 -> log.warning("Transfer" + now + " failed: Server unavailable");
+                        default -> log.severe("Unknown status code (" + statusCode + "). Transfer " + now + " failed?");
+                    }
+                } catch (IOException | InterruptedException e) {
+                    log.severe("Error: Transfer " + now + " failed");
+                    e.printStackTrace();
+                }
+            });
+        }
+    }
+
     private void checkSoftDependencies() {
         try{
             MinecraftReflection.getMinecraftItemStack(new ItemStack(Material.DIRT));
         } catch (NoClassDefFoundError e) {
             canUseReflection = false;
             plugin.getLogger().info("Reflection unavailable; some advancements will be disabled.");
+        }
+        try{
+            Class<Pay4PlayersAPI> test = Pay4PlayersAPI.class;
+        } catch (NoClassDefFoundError e) {
+            canGivePoints = false;
+            plugin.getLogger().info("Pay4PlayersAPI unavailable; point awards will be disabled.");
         }
     }
 
@@ -178,5 +218,7 @@ public class B4BAdvancements extends JavaPlugin implements Listener {
         pluginManager.registerEvents(new ClaimContestOver(), this);
         pluginManager.registerEvents(new PlayerClaimsCounted(), this);
         pluginManager.registerEvents(new WelcomeMsgSent(), this);
+
+        pluginManager.registerEvents(new PlayerAdvancementDone(), this);
     }
 }
