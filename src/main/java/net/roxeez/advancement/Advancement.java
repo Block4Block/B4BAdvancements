@@ -149,7 +149,7 @@ public class Advancement {
 
         T object;
         try {
-            object = trigger.getClazz().newInstance();
+            object = trigger.getClazz().getDeclaredConstructor().newInstance();
         }
         catch (Exception e) {
             throw new RuntimeException(e);

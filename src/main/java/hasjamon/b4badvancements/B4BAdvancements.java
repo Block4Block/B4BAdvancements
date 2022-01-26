@@ -45,7 +45,7 @@ public class B4BAdvancements extends JavaPlugin implements Listener {
     public static String getItemName(ItemStack head){
         try{
             Object refItemStack = MinecraftReflection.getMinecraftItemStack(head);
-            return LocaleLanguage.a().a(((net.minecraft.world.item.ItemStack) refItemStack).getName().getString());
+            return LocaleLanguage.a().a(((net.minecraft.world.item.ItemStack) refItemStack).v().getString());
         } catch (ClassCastException e) {
             e.printStackTrace();
             return "";
