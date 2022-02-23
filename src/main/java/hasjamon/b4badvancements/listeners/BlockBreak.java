@@ -30,10 +30,11 @@ public class BlockBreak implements Listener {
                 B4BAdvancements.awardCriteria(player, BreakBedFreelyAdvancement.ID, "0");
             }
             case CRIMSON_NYLIUM, WARPED_NYLIUM -> {
+                B4BAdvancements.awardCriteria(player, BreakNyliumFreelyAdvancement.ID, "0");
+
+                /*
                 ItemStack mainhandItem = player.getInventory().getItemInMainHand();
 
-                B4BAdvancements.awardCriteria(player, BreakNyliumFreelyAdvancement.ID, "0");
-                /*
                 if(mainhandItem.containsEnchantment(Enchantment.SILK_TOUCH) && (
                         mainhandItem.getType() == Material.WOODEN_PICKAXE ||
                         mainhandItem.getType() == Material.IRON_PICKAXE ||
@@ -44,6 +45,9 @@ public class BlockBreak implements Listener {
                 )){
                     B4BAdvancements.awardCriteria(player, BreakNyliumWithSilkTouchAdvancement.ID, "0");
                 }*/
+            }
+            case ANDESITE -> {
+                B4BAdvancements.awardCriteria(player, BreakAndesiteAdvancement.ID, "0");
             }
         }
     }

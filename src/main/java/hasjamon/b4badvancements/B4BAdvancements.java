@@ -105,6 +105,7 @@ public class B4BAdvancements extends JavaPlugin implements Listener {
         /*        */advManager.register(new BreakBedFreelyAdvancement());
         /*          */advManager.register(new BreakNyliumFreelyAdvancement());
         /*            */advManager.register(new SpreadNyliumAdvancement());
+        /*          */advManager.register(new BreakAndesiteAdvancement());
         /*    */advManager.register(new PickFlowerAdvancement());
         /*      */advManager.register(new PickAllFlowersAdvancement());
         /*        */advManager.register(new CraftAllDyesAdvancement());
