@@ -18,7 +18,7 @@ public class SpreadNyliumAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), BreakNyliumFreelyAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Spreading Nylium");
-            x.setDescription("Apply bone meal to netherrack to convert it to nyliyum. (Must be next to nylium)");
+            x.setDescription("Apply bone meal to netherrack to convert it to nylium. (Must be next to nylium)");
             x.setIcon(Material.BONE_MEAL);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});
