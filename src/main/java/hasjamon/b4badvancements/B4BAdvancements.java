@@ -9,6 +9,7 @@ import net.roxeez.advancement.AdvancementManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
+import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
 import org.bukkit.inventory.ItemStack;
@@ -16,11 +17,15 @@ import org.bukkit.plugin.PluginManager;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.IOException;
+import java.util.LinkedList;
+import java.util.Set;
+import java.util.UUID;
 import java.util.logging.Logger;
 
 public class B4BAdvancements extends JavaPlugin implements Listener {
     public static boolean canUseReflection = true;
     private static boolean canGivePoints = true;
+    private static final LinkedList<TransferInfo> failedTransfers = new LinkedList<>();
     private static B4BAdvancements plugin;
     private final PluginManager pluginManager = getServer().getPluginManager();
     private final AdvancementManager advManager = new AdvancementManager(this);
@@ -31,6 +36,10 @@ public class B4BAdvancements extends JavaPlugin implements Listener {
         checkSoftDependencies();
         registerAdvancements();
         registerEvents();
+        populateFailedTransfers();
+
+        // Retry transfers one every 20 ticks (= 1 second)
+        getServer().getScheduler().scheduleSyncRepeatingTask(this, this::retryTransfers, 0, 20);
     }
 
     public static void awardCriteria(Player player, String advancementID, String criteriaID){
@@ -45,7 +54,7 @@ public class B4BAdvancements extends JavaPlugin implements Listener {
     public static String getItemName(ItemStack head){
         try{
             Object refItemStack = MinecraftReflection.getMinecraftItemStack(head);
-            return LocaleLanguage.a().a(((net.minecraft.world.item.ItemStack) refItemStack).v().getString());
+            return LocaleLanguage.a().a(((net.minecraft.world.item.ItemStack) refItemStack).w().getString());
         } catch (ClassCastException e) {
             e.printStackTrace();
             return "";
@@ -53,31 +62,97 @@ public class B4BAdvancements extends JavaPlugin implements Listener {
     }
 
     public static void givePoints(Player player, int amount){
-        String uuid = String.valueOf(player.getUniqueId());
-        Logger log = plugin.getLogger();
-        long now = System.nanoTime();
+        givePoints(new TransferInfo(player.getName(), player.getUniqueId().toString(), amount, UUID.randomUUID().toString(), -1, -1, 0));
+    }
 
-        log.info("Transfer " + now + ": " + amount + " points to " + uuid + " (" + player.getName() + ")");
+    public static void givePoints(TransferInfo transfer){
+        String playerName = transfer.playerName();
+        int amount = transfer.amount();
+        String tid = transfer.id();
+        int retries = transfer.retries();
+        String pid = transfer.playerUUID();
+        Logger log = plugin.getLogger();
+
+        log.info("Transfer " + tid + ": " + amount + " points to " + pid + " (" + playerName + ")");
 
         if(canGivePoints) {
             Bukkit.getScheduler().runTaskAsynchronously(plugin, () -> {
                 try {
-                    int statusCode = Pay4PlayersAPI.transferPoints(uuid, amount);
+                    int statusCode = Pay4PlayersAPI.transferPoints(pid, amount);
 
                     switch(statusCode) {
-                        case 200 -> log.info("Transfer " + now + " succeeded");
-                        case 400 -> log.warning("Transfer" + now + " failed: Malformed JSON");
-                        case 401 -> log.warning("Transfer" + now + " failed: Unknown/invalid token");
-                        case 402 -> log.warning("Transfer" + now + " failed: Insufficient points");
-                        case 403 -> log.warning("Transfer" + now + " failed: Sender and recipient were the same");
-                        case 502 -> log.warning("Transfer" + now + " failed: Server unavailable");
-                        default -> log.severe("Unknown status code (" + statusCode + "). Transfer " + now + " failed?");
+                        case 200 -> log.info("Transfer " + tid + " succeeded");
+                        case 400 -> log.warning("Transfer " + tid + " failed: Malformed JSON");
+                        case 401 -> log.warning("Transfer " + tid + " failed: Unknown/invalid token");
+                        case 402 -> log.warning("Transfer " + tid + " failed: Insufficient points");
+                        case 403 -> log.warning("Transfer " + tid + " failed: Sender and recipient were the same");
+                        case 502 -> log.warning("Transfer " + tid + " failed: Server unavailable");
+                        default -> log.severe("Unknown status code (" + statusCode + "). Transfer " + tid + " failed?");
+                    }
+
+                    if(statusCode != 200){
+                        saveFailedTransfer(new TransferInfo(playerName, pid, amount, tid, System.currentTimeMillis(), retries + 1, statusCode));
                     }
                 } catch (IOException | InterruptedException e) {
-                    log.severe("Error: Transfer " + now + " failed");
+                    log.severe("Error: Transfer " + tid + " failed");
                     e.printStackTrace();
+                    saveFailedTransfer(new TransferInfo(playerName, pid, amount, tid, System.currentTimeMillis(), retries + 1, -1));
                 }
             });
+        }
+    }
+
+    private void populateFailedTransfers() {
+        ConfigurationSection cfg = plugin.getConfig().getConfigurationSection("failed-transfers");
+
+        if(cfg != null) {
+            Set<String> transferIDs = cfg.getKeys(false);
+
+            for(String tID : transferIDs) {
+                String playerName = plugin.getConfig().getString("failed-transfers." + tID + ".player-name");
+                String playerUUID = plugin.getConfig().getString("failed-transfers." + tID + ".player-uuid");
+                int amount = plugin.getConfig().getInt("failed-transfers." + tID + ".amount");
+                long lastTry = plugin.getConfig().getLong("failed-transfers." + tID + ".last-try");
+                int retries = plugin.getConfig().getInt("failed-transfers." + tID + ".retries");
+                int statusCode = plugin.getConfig().getInt("failed-transfers." + tID + ".status-code");
+
+                failedTransfers.add(new TransferInfo(playerName, playerUUID, amount, tID, lastTry, retries, statusCode));
+            }
+        }
+    }
+
+    private static void saveFailedTransfer(TransferInfo transferInfo) {
+        failedTransfers.add(transferInfo);
+
+        plugin.getConfig().set("failed-transfers." + transferInfo.id() + ".player-name", transferInfo.playerName());
+        plugin.getConfig().set("failed-transfers." + transferInfo.id() + ".player-uuid", transferInfo.playerUUID());
+        plugin.getConfig().set("failed-transfers." + transferInfo.id() + ".amount", transferInfo.amount());
+        plugin.getConfig().set("failed-transfers." + transferInfo.id() + ".last-try", transferInfo.lastTry());
+        plugin.getConfig().set("failed-transfers." + transferInfo.id() + ".retries", transferInfo.retries());
+        plugin.getConfig().set("failed-transfers." + transferInfo.id() + ".status-code", transferInfo.statusCode());
+        plugin.saveConfig();
+    }
+
+    private void retryTransfers() {
+        LinkedList<TransferInfo> retried = new LinkedList<>();
+
+        for(TransferInfo transfer : failedTransfers) {
+            long now = System.currentTimeMillis();
+
+            // If it's been more than 2^retries * 3 seconds since last try failed
+            if(now - transfer.lastTry() > Math.pow(2, transfer.retries()) * 3000){
+                givePoints(transfer);
+                retried.add(transfer);
+            }
+        }
+
+        if(retried.size() > 0) {
+            for(TransferInfo info : retried) {
+                plugin.getConfig().set("failed-transfers." + info.id(), null);
+            }
+            plugin.saveConfig();
+
+            failedTransfers.removeAll(retried);
         }
     }
 
@@ -222,4 +297,6 @@ public class B4BAdvancements extends JavaPlugin implements Listener {
 
         pluginManager.registerEvents(new PlayerAdvancementDone(), this);
     }
+
+    record TransferInfo(String playerName, String playerUUID, int amount, String id, long lastTry, int retries, int statusCode) { }
 }
