@@ -6,3 +6,8 @@ depend: [Block4Block]
 softdepend: [ProtocolLib, Pay4PlayersAPI]
 version: 2.1
 description: Advancements addon for the Block4Block plugin
+commands:
+  givepoints:
+    description: Tranfers x points to a player.
+    usage: /<command> player amount
+    permission: console

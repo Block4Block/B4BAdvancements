@@ -3,12 +3,15 @@ package hasjamon.b4badvancements;
 import com.comphenix.protocol.utility.MinecraftReflection;
 import com.pay4players.Pay4PlayersAPI;
 import hasjamon.b4badvancements.advancements.*;
+import hasjamon.b4badvancements.commands.GivePointsCommand;
 import hasjamon.b4badvancements.listeners.*;
 import net.minecraft.locale.LocaleLanguage;
 import net.roxeez.advancement.AdvancementManager;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
+import org.bukkit.OfflinePlayer;
+import org.bukkit.command.PluginCommand;
 import org.bukkit.configuration.ConfigurationSection;
 import org.bukkit.entity.Player;
 import org.bukkit.event.Listener;
@@ -24,7 +27,7 @@ import java.util.logging.Logger;
 
 public class B4BAdvancements extends JavaPlugin implements Listener {
     public static boolean canUseReflection = true;
-    private static boolean canGivePoints = true;
+    public static boolean canGivePoints = true;
     private static final LinkedList<TransferInfo> failedTransfers = new LinkedList<>();
     private static B4BAdvancements plugin;
     private final PluginManager pluginManager = getServer().getPluginManager();
@@ -37,6 +40,7 @@ public class B4BAdvancements extends JavaPlugin implements Listener {
         registerAdvancements();
         registerEvents();
         populateFailedTransfers();
+        setCommandExecutors();
 
         // Retry transfers one every 20 ticks (= 1 second)
         getServer().getScheduler().scheduleSyncRepeatingTask(this, this::retryTransfers, 0, 20);
@@ -61,7 +65,7 @@ public class B4BAdvancements extends JavaPlugin implements Listener {
         }
     }
 
-    public static void givePoints(Player player, int amount){
+    public static void givePoints(OfflinePlayer player, int amount){
         givePoints(new TransferInfo(player.getName(), player.getUniqueId().toString(), amount, UUID.randomUUID().toString(), -1, -1, 0));
     }
 
@@ -169,6 +173,12 @@ public class B4BAdvancements extends JavaPlugin implements Listener {
             canGivePoints = false;
             plugin.getLogger().info("Pay4PlayersAPI unavailable; point awards will be disabled.");
         }
+    }
+
+    private void setCommandExecutors() {
+        PluginCommand givePointsCmd = this.getCommand("givepoints");
+
+        if(givePointsCmd != null) givePointsCmd.setExecutor(new GivePointsCommand());
     }
 
     private void registerAdvancements() {
