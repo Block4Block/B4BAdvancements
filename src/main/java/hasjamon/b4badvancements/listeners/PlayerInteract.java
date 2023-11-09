@@ -41,7 +41,8 @@ public class PlayerInteract implements Listener {
             Material.WITHER_SKELETON_SPAWN_EGG, Material.SHULKER_SPAWN_EGG, Material.EVOKER_SPAWN_EGG,
             Material.SKELETON_HORSE_SPAWN_EGG, Material.VILLAGER_SPAWN_EGG, Material.ZOMBIE_VILLAGER_SPAWN_EGG,
             Material.MOOSHROOM_SPAWN_EGG, Material.ELDER_GUARDIAN_SPAWN_EGG, Material.GHAST_SPAWN_EGG,
-            Material.CHICKEN_SPAWN_EGG
+            Material.CHICKEN_SPAWN_EGG, Material.FROG_SPAWN_EGG, Material.TADPOLE_SPAWN_EGG, Material.ALLAY_SPAWN_EGG,
+            Material.WARDEN_SPAWN_EGG
     );
     private final B4BAdvancements plugin;
 

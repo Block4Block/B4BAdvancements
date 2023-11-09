@@ -51,8 +51,10 @@ public class InventoryClick implements Listener {
                     case SPIDER_SPAWN_EGG, BAT_SPAWN_EGG, BEE_SPAWN_EGG, CAT_SPAWN_EGG, CAVE_SPIDER_SPAWN_EGG,
                             COD_SPAWN_EGG, COW_SPAWN_EGG, CREEPER_SPAWN_EGG, DOLPHIN_SPAWN_EGG, DONKEY_SPAWN_EGG,
                             DROWNED_SPAWN_EGG, ENDERMITE_SPAWN_EGG, FOX_SPAWN_EGG, GOAT_SPAWN_EGG, GLOW_SQUID_SPAWN_EGG,
+                            FROG_SPAWN_EGG, TADPOLE_SPAWN_EGG,
                             HORSE_SPAWN_EGG, HUSK_SPAWN_EGG, LLAMA_SPAWN_EGG, MULE_SPAWN_EGG, OCELOT_SPAWN_EGG,
                             PANDA_SPAWN_EGG, PARROT_SPAWN_EGG, PHANTOM_SPAWN_EGG, PIG_SPAWN_EGG, PILLAGER_SPAWN_EGG,
+                            ALLAY_SPAWN_EGG,
                             POLAR_BEAR_SPAWN_EGG, PUFFERFISH_SPAWN_EGG, RABBIT_SPAWN_EGG, SALMON_SPAWN_EGG, SHEEP_SPAWN_EGG,
                             SILVERFISH_SPAWN_EGG, SKELETON_SPAWN_EGG, SQUID_SPAWN_EGG, TRADER_LLAMA_SPAWN_EGG,
                             TURTLE_SPAWN_EGG, TROPICAL_FISH_SPAWN_EGG, WOLF_SPAWN_EGG, ZOMBIE_SPAWN_EGG -> {
@@ -67,8 +69,8 @@ public class InventoryClick implements Listener {
                         advIDs.add(PickupSpawnEggAdvancement.ID);
                         advIDs.add(PickupRareSpawnEggAdvancement.ID);
                     }
-                    case MOOSHROOM_SPAWN_EGG, ELDER_GUARDIAN_SPAWN_EGG, GHAST_SPAWN_EGG, CHICKEN_SPAWN_EGG,
-                            ZOMBIE_HORSE_SPAWN_EGG -> {
+                    case MOOSHROOM_SPAWN_EGG, ELDER_GUARDIAN_SPAWN_EGG, GHAST_SPAWN_EGG, WARDEN_SPAWN_EGG,
+                            CHICKEN_SPAWN_EGG, ZOMBIE_HORSE_SPAWN_EGG -> {
                         advIDs.add(PickupSpawnEggAdvancement.ID);
                         advIDs.add(PickupRareSpawnEggAdvancement.ID);
                         advIDs.add(PickupSuperRareSpawnEggAdvancement.ID);

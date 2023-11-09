@@ -4,7 +4,7 @@ api-version: 1.18
 authors: [ HasJamOn, Bahm ]
 depend: [Block4Block]
 softdepend: [ProtocolLib, Pay4PlayersAPI]
-version: 2.1
+version: 2.3
 description: Advancements addon for the Block4Block plugin
 commands:
   givepoints:
