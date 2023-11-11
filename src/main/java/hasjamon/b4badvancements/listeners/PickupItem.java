@@ -36,7 +36,8 @@ public class PickupItem implements Listener {
             Material.AZURE_BLUET, Material.RED_TULIP, Material.ORANGE_TULIP,
             Material.WHITE_TULIP, Material.PINK_TULIP, Material.OXEYE_DAISY,
             Material.CORNFLOWER, Material.LILY_OF_THE_VALLEY, Material.WITHER_ROSE,
-            Material.SUNFLOWER, Material.LILAC, Material.ROSE_BUSH, Material.PEONY);
+            Material.SUNFLOWER, Material.LILAC, Material.ROSE_BUSH, Material.PEONY,
+            Material.TORCHFLOWER, Material.PITCHER_PLANT);
     public static final List<String> mobHeads = Arrays.asList(
             "Creamy Trader Llama", "White Trader Llama", "Brown Trader Llama", "Gray Trader Llama", "Slime", "Chicken",
             "Guardian", "Enderman", "Goat", "Screaming Goat", "Ghast", "Cod", "Blaze", "Pufferfish", "Witch",
@@ -56,14 +57,14 @@ public class PickupItem implements Listener {
             "White Rabbit", "Black Rabbit", "Black and White Rabbit", "Gold Rabbit", "Salt and Pepper Rabbit",
             "Bat", "Piglin Brute", "Dolphin", "Charged Creeper", "Zombified Piglin", "Endermite",
             "Lucy Axolotl", "Wild Axolotl", "Gold Axolotl", "Cyan Axolotl", "Blue Axolotl", "Mule", "Spider",
-            "Elder Guardian", "Stray", "Drowned", "Wither", "Invulnerable Wither", "Armored Wither",
-            "Armored Invulnerable Wither", "Cow", "Pillager", "jeb_ Sheep", "Orange Sheep", "Brown Sheep",
+            "Elder Guardian", "Stray", "Drowned", "Wither", "Wither Projectile", "Blue Wither Projectile",
+            "Cow", "Pillager", "jeb_ Sheep", "Orange Sheep", "Brown Sheep",
             "Green Sheep", "Lime Sheep", "Red Sheep", "Yellow Sheep", "White Sheep", "Pink Sheep", "Gray Sheep",
             "Light Blue Sheep", "Cyan Sheep", "Light Gray Sheep", "Purple Sheep", "Magenta Sheep", "Black Sheep",
             "Blue Sheep", "Armorer Villager", "Butcher Villager", "Cartographer Villager", "Cleric Villager",
             "Farmer Villager", "Fisherman Villager", "Fletcher Villager", "Leatherworker Villager",
             "Librarian Villager", "Mason Villager", "Nitwit Villager", "Unemployed Villager", "Shepherd Villager",
-            "Toolsmith Villager", "Weaponsmith Villager", "Piglin", "Snow Golem",
+            "Toolsmith Villager", "Weaponsmith Villager", "Snow Golem", "Camel", "Sniffer",
             "Allay", "Cold Frog", "Temperate Frog", "Warm Frog", "Tadpole", "Warden");
     private final B4BAdvancements plugin;
 
@@ -170,7 +171,7 @@ public class PickupItem implements Listener {
                     B4BAdvancements.awardCriteria(player, PickupFlintAdvancement.ID, "0");
                 }
                 case SPIDER_SPAWN_EGG, BAT_SPAWN_EGG, BEE_SPAWN_EGG, CAT_SPAWN_EGG, CAVE_SPIDER_SPAWN_EGG,
-                        COD_SPAWN_EGG, COW_SPAWN_EGG, CREEPER_SPAWN_EGG, DOLPHIN_SPAWN_EGG, DONKEY_SPAWN_EGG,
+                        COD_SPAWN_EGG, COW_SPAWN_EGG, CREEPER_SPAWN_EGG, DOLPHIN_SPAWN_EGG, CAMEL_SPAWN_EGG, DONKEY_SPAWN_EGG,
                         DROWNED_SPAWN_EGG, ENDERMITE_SPAWN_EGG, FOX_SPAWN_EGG, GOAT_SPAWN_EGG, GLOW_SQUID_SPAWN_EGG,
                         FROG_SPAWN_EGG, TADPOLE_SPAWN_EGG,
                         HORSE_SPAWN_EGG, HUSK_SPAWN_EGG, LLAMA_SPAWN_EGG, MULE_SPAWN_EGG, OCELOT_SPAWN_EGG,
@@ -190,8 +191,8 @@ public class PickupItem implements Listener {
                     B4BAdvancements.awardCriteria(player, PickupSpawnEggAdvancement.ID, "0");
                     B4BAdvancements.awardCriteria(player, PickupRareSpawnEggAdvancement.ID, "0");
                 }
-                case MOOSHROOM_SPAWN_EGG, ELDER_GUARDIAN_SPAWN_EGG, GHAST_SPAWN_EGG, WARDEN_SPAWN_EGG,
-                        CHICKEN_SPAWN_EGG, ZOMBIE_HORSE_SPAWN_EGG -> {
+                case MOOSHROOM_SPAWN_EGG, ELDER_GUARDIAN_SPAWN_EGG, GHAST_SPAWN_EGG, SNIFFER_SPAWN_EGG,
+                        WARDEN_SPAWN_EGG, CHICKEN_SPAWN_EGG, ZOMBIE_HORSE_SPAWN_EGG -> {
                     B4BAdvancements.awardCriteria(player, PickupSpawnEggAdvancement.ID, "0");
                     B4BAdvancements.awardCriteria(player, PickupRareSpawnEggAdvancement.ID, "0");
                     B4BAdvancements.awardCriteria(player, PickupSuperRareSpawnEggAdvancement.ID, "0");
@@ -227,7 +228,7 @@ public class PickupItem implements Listener {
                         }
                     }
                 }
-                case SKELETON_SKULL, WITHER_SKELETON_SKULL, CREEPER_HEAD, DRAGON_HEAD, ZOMBIE_HEAD -> {
+                case SKELETON_SKULL, WITHER_SKELETON_SKULL, CREEPER_HEAD, DRAGON_HEAD, ZOMBIE_HEAD, PIGLIN_HEAD -> {
                     B4BAdvancements.awardCriteria(player, CollectMobHeadAdvancement.ID, "0");
                     B4BAdvancements.awardCriteria(player, CollectAllMobHeadsAdvancement.ID, itemType.toString());
                     if(isNewDrop){

@@ -87,7 +87,7 @@ public class EntityDeath implements Listener {
 
     private boolean isHeadOrSkull(ItemStack itemStack) {
         switch(itemStack.getType()){
-            case PLAYER_HEAD, SKELETON_SKULL, WITHER_SKELETON_SKULL, CREEPER_HEAD, DRAGON_HEAD, ZOMBIE_HEAD -> {
+            case PLAYER_HEAD, SKELETON_SKULL, WITHER_SKELETON_SKULL, CREEPER_HEAD, DRAGON_HEAD, ZOMBIE_HEAD, PIGLIN_HEAD -> {
                 return true;
             }
             default -> {

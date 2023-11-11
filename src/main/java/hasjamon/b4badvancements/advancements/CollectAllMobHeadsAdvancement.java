@@ -37,6 +37,7 @@ public class CollectAllMobHeadsAdvancement implements AdvancementCreator {
         advancement.addCriteria(Material.CREEPER_HEAD.toString(), TriggerType.IMPOSSIBLE, trigger -> {});
         advancement.addCriteria(Material.DRAGON_HEAD.toString(), TriggerType.IMPOSSIBLE, trigger -> {});
         advancement.addCriteria(Material.ZOMBIE_HEAD.toString(), TriggerType.IMPOSSIBLE, trigger -> {});
+        advancement.addCriteria(Material.PIGLIN_HEAD.toString(), TriggerType.IMPOSSIBLE, trigger -> {});
 
         return advancement;
     }

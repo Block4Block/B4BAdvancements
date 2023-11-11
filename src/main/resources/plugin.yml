@@ -1,10 +1,10 @@
 name: B4BAdvancements
 main: hasjamon.b4badvancements.B4BAdvancements
-api-version: 1.18
+api-version: 1.20
 authors: [ HasJamOn, Bahm ]
 depend: [Block4Block]
 softdepend: [ProtocolLib, Pay4PlayersAPI]
-version: 2.3
+version: 2.4
 description: Advancements addon for the Block4Block plugin
 commands:
   givepoints:

@@ -49,7 +49,7 @@ public class InventoryClick implements Listener {
                     case PUMPKIN, CARVED_PUMPKIN -> advIDs.add(PickupPumpkinAdvancement.ID);
                     case SUGAR_CANE -> advIDs.add(PickupSugarCaneAdvancement.ID);
                     case SPIDER_SPAWN_EGG, BAT_SPAWN_EGG, BEE_SPAWN_EGG, CAT_SPAWN_EGG, CAVE_SPIDER_SPAWN_EGG,
-                            COD_SPAWN_EGG, COW_SPAWN_EGG, CREEPER_SPAWN_EGG, DOLPHIN_SPAWN_EGG, DONKEY_SPAWN_EGG,
+                            COD_SPAWN_EGG, COW_SPAWN_EGG, CREEPER_SPAWN_EGG, DOLPHIN_SPAWN_EGG, CAMEL_SPAWN_EGG, DONKEY_SPAWN_EGG,
                             DROWNED_SPAWN_EGG, ENDERMITE_SPAWN_EGG, FOX_SPAWN_EGG, GOAT_SPAWN_EGG, GLOW_SQUID_SPAWN_EGG,
                             FROG_SPAWN_EGG, TADPOLE_SPAWN_EGG,
                             HORSE_SPAWN_EGG, HUSK_SPAWN_EGG, LLAMA_SPAWN_EGG, MULE_SPAWN_EGG, OCELOT_SPAWN_EGG,
@@ -69,8 +69,8 @@ public class InventoryClick implements Listener {
                         advIDs.add(PickupSpawnEggAdvancement.ID);
                         advIDs.add(PickupRareSpawnEggAdvancement.ID);
                     }
-                    case MOOSHROOM_SPAWN_EGG, ELDER_GUARDIAN_SPAWN_EGG, GHAST_SPAWN_EGG, WARDEN_SPAWN_EGG,
-                            CHICKEN_SPAWN_EGG, ZOMBIE_HORSE_SPAWN_EGG -> {
+                    case MOOSHROOM_SPAWN_EGG, ELDER_GUARDIAN_SPAWN_EGG, GHAST_SPAWN_EGG, SNIFFER_SPAWN_EGG,
+                            WARDEN_SPAWN_EGG, CHICKEN_SPAWN_EGG, ZOMBIE_HORSE_SPAWN_EGG -> {
                         advIDs.add(PickupSpawnEggAdvancement.ID);
                         advIDs.add(PickupRareSpawnEggAdvancement.ID);
                         advIDs.add(PickupSuperRareSpawnEggAdvancement.ID);
@@ -106,7 +106,7 @@ public class InventoryClick implements Listener {
                             }
                         }
                     }
-                    case SKELETON_SKULL, WITHER_SKELETON_SKULL, CREEPER_HEAD, DRAGON_HEAD, ZOMBIE_HEAD -> {
+                    case SKELETON_SKULL, WITHER_SKELETON_SKULL, CREEPER_HEAD, DRAGON_HEAD, ZOMBIE_HEAD, PIGLIN_HEAD -> {
                         advIDs.add(CollectMobHeadAdvancement.ID);
                         B4BAdvancements.awardCriteria(player, CollectAllMobHeadsAdvancement.ID, itemType.toString());
                         if(isNew){

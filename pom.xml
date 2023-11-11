@@ -6,7 +6,7 @@
 
     <groupId>hasjamon.b4badvancements</groupId>
     <artifactId>B4BAdvancements</artifactId>
-    <version>2.3</version>
+    <version>2.4</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
@@ -29,7 +29,7 @@
         <dependency>
             <groupId>org.spigotmc</groupId>
             <artifactId>spigot</artifactId>
-            <version>1.19.4-R0.1-SNAPSHOT</version>
+            <version>1.20.1-R0.1-SNAPSHOT</version>
             <scope>provided</scope>
             <exclusions>
                 <exclusion>
@@ -64,7 +64,7 @@
         <dependency>
             <groupId>hasjamon.block4block</groupId>
             <artifactId>block4block</artifactId>
-            <version>2.3</version>
+            <version>2.4</version>
         </dependency>
         <dependency>
             <groupId>com.pay4players</groupId>
