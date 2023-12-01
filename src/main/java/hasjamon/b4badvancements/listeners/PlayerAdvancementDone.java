@@ -58,6 +58,7 @@ public class PlayerAdvancementDone implements Listener {
             case /*      */StandCenterNetherAdvancement.ID -> points = 6;
             case /*        */StandCenterEndAdvancement.ID -> points = 12;
             case /*  */KillZombieGetCharcoalAdvancement.ID -> points = 5;
+            case /*    */KillCreeperOrWitchGetRocketAdvancement.ID -> points = 5;
             case /*    */KillSkeletonGetStoneAdvancement.ID -> points = 5;
             case /*      */KillWitherSkeletonGetBlackstoneAdvancement.ID -> points = 10;
             case /*      */B4BreakStoneAdvancement.ID -> points = 5;

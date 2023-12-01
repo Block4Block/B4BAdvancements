@@ -225,6 +225,7 @@ public class B4BAdvancements extends JavaPlugin implements Listener {
         /*      */advManager.register(new StandCenterNetherAdvancement());
         /*        */advManager.register(new StandCenterEndAdvancement());
         /*  */advManager.register(new KillZombieGetCharcoalAdvancement());
+        /*    */advManager.register(new KillCreeperOrWitchGetRocketAdvancement());
         /*    */advManager.register(new KillSkeletonGetStoneAdvancement());
         /*      */advManager.register(new KillWitherSkeletonGetBlackstoneAdvancement());
         /*      */advManager.register(new B4BreakStoneAdvancement());

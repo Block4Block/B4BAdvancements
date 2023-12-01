@@ -107,6 +107,11 @@ public class PickupItem implements Listener {
                         B4BAdvancements.awardCriteria(player, KillZombieGetCharcoalAdvancement.ID, "0");
                     }
                 }
+                case FIREWORK_ROCKET -> {
+                    if (System.nanoTime() - KillEntity.lastWitchKill.getOrDefault(player, 0L) <= 3e10 || System.nanoTime() - KillEntity.lastCreeperKill.getOrDefault(player, 0L) <= 3e10) {
+                        B4BAdvancements.awardCriteria(player, KillCreeperOrWitchGetRocketAdvancement.ID, "0");
+                    }
+                }
                 case DIRT -> {
                     if (System.nanoTime() - KillEntity.lastPigKill.getOrDefault(player, 0L) <= 3e10) {
                         B4BAdvancements.awardCriteria(player, KillPigGetDirtAdvancement.ID, "0");
