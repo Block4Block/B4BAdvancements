@@ -98,8 +98,13 @@ public class PickupItem implements Listener {
                     }
                 }
                 case BLACKSTONE, GILDED_BLACKSTONE -> {
-                    if (System.nanoTime() - KillEntity.lastWitherSkeletonKill.getOrDefault(player, 0L) <= 3e10) {
+                    if (System.nanoTime() - KillEntity.lastZombieKill.getOrDefault(player, 0L) <= 3e10) {
                         B4BAdvancements.awardCriteria(player, KillWitherSkeletonGetBlackstoneAdvancement.ID, "0");
+                    }
+                }
+                case CHARCOAL -> {
+                    if (System.nanoTime() - KillEntity.lastZombieKill.getOrDefault(player, 0L) <= 3e10) {
+                        B4BAdvancements.awardCriteria(player, KillZombieGetCharcoalAdvancement.ID, "0");
                     }
                 }
                 case DIRT -> {
