@@ -2,6 +2,7 @@ package hasjamon.b4badvancements.listeners;
 
 import hasjamon.b4badvancements.B4BAdvancements;
 import hasjamon.b4badvancements.advancements.PlaceSkeletonSpawnerAdvancement;
+import hasjamon.b4badvancements.advancements.PlaceSlimeSpawnerAdvancement;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.block.CreatureSpawner;
@@ -39,6 +40,9 @@ public class BlockPlace implements Listener {
         if(b.getType() == Material.SPAWNER){
             if(((CreatureSpawner) b.getState()).getSpawnedType() == EntityType.SKELETON){
                 B4BAdvancements.awardCriteria(p, PlaceSkeletonSpawnerAdvancement.ID, "0");
+            }
+            if(((CreatureSpawner) b.getState()).getSpawnedType() == EntityType.SLIME){
+                B4BAdvancements.awardCriteria(p, PlaceSlimeSpawnerAdvancement.ID, "0");
             }
         }
     }

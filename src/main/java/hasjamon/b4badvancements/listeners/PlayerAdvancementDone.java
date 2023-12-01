@@ -23,6 +23,7 @@ public class PlayerAdvancementDone implements Listener {
             case /*        */BreakBedFreelyAdvancement.ID -> points = 3;
             case /*          */BreakNyliumFreelyAdvancement.ID -> points = 5;
             case /*            */SpreadNyliumAdvancement.ID -> points = 10;
+            case /*             */PlaceSlimeSpawnerAdvancement.ID -> points = 75;
             case /*          */BreakAndesiteAdvancement.ID -> points = 3;
             case /*    */PickFlowerAdvancement.ID -> points = 5;
             case /*      */PickAllFlowersAdvancement.ID -> points = 40;

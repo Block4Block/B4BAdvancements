@@ -35,8 +35,8 @@ public class EntityDeath implements Listener {
 
                 if(meta != null){
                     if(valuable.getType() == Material.DIAMOND_BLOCK) {
-                        meta.setDisplayName("Curtis Mayfield's Diamond Block");
-                        meta.setLore(Lists.newArrayList(NEW_DROP_PREFIX + "\"Dude, why you do that to my car?\" - Curtis Mayfield"));
+                        meta.setDisplayName("Diamond in the Block");
+                        meta.setLore(Lists.newArrayList(NEW_DROP_PREFIX + "Curtis Mayfield wants it back!"));
                     }else{
                         if(B4BAdvancements.canUseReflection){
                             meta.setDisplayName("Lucky " + B4BAdvancements.getItemName(valuable));
