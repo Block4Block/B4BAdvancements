@@ -18,7 +18,7 @@ public class ClaimChunkAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), MakeLecternAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Lectern's Claim List");
-            x.setDescription("Claim a chunk by placing a claim book on a lectern.");
+            x.setDescription("Create a claim by placing a claim book on a lectern.");
             x.setIcon(Material.LECTERN);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

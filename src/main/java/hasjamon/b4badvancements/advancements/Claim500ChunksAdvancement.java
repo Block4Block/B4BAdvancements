@@ -18,7 +18,7 @@ public class Claim500ChunksAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), Claim250ChunksAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Marquess");
-            x.setDescription("Claim 500 chunks.");
+            x.setDescription("Own 500 claims.");
             x.setIcon(Material.NETHER_BRICK_WALL);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

@@ -18,7 +18,7 @@ public class ClaimContestChunkAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), ClaimChunkAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Claim Contest Contender");
-            x.setDescription("Claim the current Contest Chunk. Good luck keeping it!");
+            x.setDescription("Own the current Claim Contest zone. Good luck keeping it!");
             x.setIcon(Material.IRON_HELMET);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

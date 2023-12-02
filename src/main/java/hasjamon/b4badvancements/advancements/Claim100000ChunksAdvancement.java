@@ -18,7 +18,7 @@ public class Claim100000ChunksAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), Claim10000ChunksAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Emperor");
-            x.setDescription("Claim 100000 chunks.");
+            x.setDescription("Own 100000 claims.");
             x.setIcon(Material.DIAMOND_BLOCK);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

@@ -18,7 +18,7 @@ public class Claim100ChunksAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), Claim50ChunksAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Viscount");
-            x.setDescription("Claim 100 chunks.");
+            x.setDescription("Own 100 claims.");
             x.setIcon(Material.BLACKSTONE_WALL);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});
