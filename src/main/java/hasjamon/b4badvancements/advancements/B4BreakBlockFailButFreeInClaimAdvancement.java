@@ -9,18 +9,18 @@ import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.jetbrains.annotations.NotNull;
 
-public class PickupSugarCaneAdvancement implements AdvancementCreator {
-    public static final String ID = "b4b_pickupsugarcane";
+public class B4BreakBlockFailButFreeInClaimAdvancement implements AdvancementCreator {
+    public static final String ID = "b4b_breakblockfailbutfreeinclaim";
 
     @Override
     public @NotNull Advancement create(@NotNull Context context) {
         Advancement advancement = new Advancement(context.getPlugin(), ID);
 
-        advancement.setParent(new NamespacedKey(context.getPlugin(), B4BreakBlockFailButFreeInClaimAdvancement.ID));
         advancement.setDisplay(x -> {
-            x.setTitle("Sweet Dreams");
-            x.setDescription("Sugar Cane is the first step towards claiming land!");
-            x.setIcon(Material.SUGAR_CANE);
+            x.setTitle("Aspiring Land Owner");
+            x.setDescription("You've stumbled a block that you could break... if you owned the place.");
+            x.setBackground(BackgroundType.STONE);
+            x.setIcon(Material.ENCHANTED_BOOK);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});
 

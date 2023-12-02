@@ -2,6 +2,7 @@ package hasjamon.b4badvancements.listeners;
 
 import hasjamon.b4badvancements.B4BAdvancements;
 import hasjamon.b4badvancements.advancements.B4BreakBlockFailAdvancement;
+import hasjamon.b4badvancements.advancements.B4BreakBlockFailButFreeInClaimAdvancement;
 import hasjamon.b4badvancements.advancements.B4BreakDirtAdvancement;
 import hasjamon.b4badvancements.advancements.B4BreakStoneAdvancement;
 import hasjamon.block4block.events.B4BlockBreakEvent;
@@ -17,7 +18,9 @@ public class B4BlockBreak implements Listener {
                 case STONE -> B4BAdvancements.awardCriteria(e.player, B4BreakStoneAdvancement.ID, "0");
                 case DIRT -> B4BAdvancements.awardCriteria(e.player, B4BreakDirtAdvancement.ID, "0");
             }
-        }else {
+        } else {
+            if (e.isFreeToBreakInClaim)
+                B4BAdvancements.awardCriteria(e.player, B4BreakBlockFailButFreeInClaimAdvancement.ID, "0");
             B4BAdvancements.awardCriteria(e.player, B4BreakBlockFailAdvancement.ID, "0");
         }
     }
