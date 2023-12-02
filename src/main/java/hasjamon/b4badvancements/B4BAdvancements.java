@@ -257,7 +257,9 @@ public class B4BAdvancements extends JavaPlugin implements Listener {
         /*          */advManager.register(new IntruderAlertAdvancement());
         /*          */advManager.register(new CreateClaimMapAdvancement());
         /*          */advManager.register(new LoseClaimWhileOfflineAdvancement());
-        /*          */advManager.register(new BuildIronGolemAdvancement());
+        /*          */advManager.register(new ProtectClaimFromAllSidesAdvancement());
+        /*            */advManager.register(new ProtectClaimWithGravityBlockAdvancement());
+        /*              */advManager.register(new BuildIronGolemAdvancement());
         /*          */advManager.register(new ClaimContestChunkAdvancement());
         /*            */advManager.register(new WinClaimContestAdvancement());
         /*          */advManager.register(new FailBlockPlaceInClaimAdvancement());

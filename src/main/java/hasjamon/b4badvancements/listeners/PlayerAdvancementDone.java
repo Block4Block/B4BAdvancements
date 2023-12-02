@@ -89,7 +89,9 @@ public class PlayerAdvancementDone implements Listener {
             case /*          */IntruderAlertAdvancement.ID -> points = 5;
             case /*          */CreateClaimMapAdvancement.ID -> points = 5;
             case /*          */LoseClaimWhileOfflineAdvancement.ID -> points = 5;
-            case /*          */BuildIronGolemAdvancement.ID -> points = 20;
+            case /*          */ProtectClaimFromAllSidesAdvancement.ID -> points = 5;
+            case /*            */ProtectClaimWithGravityBlockAdvancement.ID -> points = 5;
+            case /*              */BuildIronGolemAdvancement.ID -> points = 20;
             case /*          */ClaimContestChunkAdvancement.ID -> points = 25;
             case /*            */WinClaimContestAdvancement.ID -> points = 125;
             case /*          */FailBlockPlaceInClaimAdvancement.ID -> points = 3;

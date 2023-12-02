@@ -8,18 +8,18 @@ import org.bukkit.Material;
 import org.bukkit.NamespacedKey;
 import org.jetbrains.annotations.NotNull;
 
-public class BuildIronGolemAdvancement implements AdvancementCreator {
-    public static final String ID = "b4b_buildirongolem";
+public class ProtectClaimWithGravityBlockAdvancement implements AdvancementCreator {
+    public static final String ID = "b4b_protectclaimwithgravityblock";
 
     @Override
     public @NotNull Advancement create(@NotNull Context context) {
         Advancement advancement = new Advancement(context.getPlugin(), ID);
 
-        advancement.setParent(new NamespacedKey(context.getPlugin(), ProtectClaimWithGravityBlockAdvancement.ID));
+        advancement.setParent(new NamespacedKey(context.getPlugin(), ProtectClaimFromAllSidesAdvancement.ID));
         advancement.setDisplay(x -> {
-            x.setTitle("Iron Defense");
-            x.setDescription("Build an iron golem to defend your claim against anyone who isn't on the list.");
-            x.setIcon(Material.JACK_O_LANTERN);
+            x.setTitle("Newtonian Defense");
+            x.setDescription("Place a gravity-affected block on top of a block protecting a Claim Lectern.");
+            x.setIcon(Material.APPLE);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});
 
