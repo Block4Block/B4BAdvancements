@@ -144,6 +144,11 @@ public class PickupItem implements Listener {
                         B4BAdvancements.awardCriteria(player, KillEndMobGetEndItemAdvancement.ID, "0");
                     }
                 }
+                case GUNPOWDER -> {
+                    if (System.nanoTime() - EntityExplode.lastNearbyCreeperExplosion.getOrDefault(player, 0L) <= 3e10) {
+                        B4BAdvancements.awardCriteria(player, CreeperExplodeGetGunpowderAdvancement.ID, "0");
+                    }
+                }
                 case COBBLESTONE -> {
                     List<Material> diamondOrNetherite = Arrays.asList(Material.DIAMOND_PICKAXE, Material.NETHERITE_PICKAXE);
                     ItemStack mainhandItem = player.getInventory().getItemInMainHand();
