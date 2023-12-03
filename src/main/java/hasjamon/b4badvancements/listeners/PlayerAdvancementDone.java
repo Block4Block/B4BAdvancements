@@ -66,6 +66,7 @@ public class PlayerAdvancementDone implements Listener {
             case /*      */B4BreakStoneAdvancement.ID -> points = 5;
             case /*        */LotsOfCobblestoneAdvancement.ID -> points = 20;
             case /*        */SmeltCobblestoneAdvancement.ID -> points = 5;
+            case /*          */UseNewBlastFurnaceRecipeAdvancement.ID -> points = 10;
             case /*        */PickupSpawnerAdvancement.ID -> points = 20;
             case /*          */PlaceSkeletonSpawnerAdvancement.ID -> points = 50;
             case /*            */LootObsidianAdvancement.ID -> points = 25;

@@ -233,6 +233,7 @@ public class B4BAdvancements extends JavaPlugin implements Listener {
         /*      */advManager.register(new B4BreakStoneAdvancement());
         /*        */advManager.register(new LotsOfCobblestoneAdvancement());
         /*        */advManager.register(new SmeltCobblestoneAdvancement());
+        /*          */advManager.register(new UseNewBlastFurnaceRecipeAdvancement());
         /*        */advManager.register(new PickupSpawnerAdvancement());
         /*          */advManager.register(new PlaceSkeletonSpawnerAdvancement());
         /*            */advManager.register(new LootObsidianAdvancement());
