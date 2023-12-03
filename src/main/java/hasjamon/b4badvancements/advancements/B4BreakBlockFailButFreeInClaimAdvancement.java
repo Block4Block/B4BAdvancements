@@ -18,7 +18,7 @@ public class B4BreakBlockFailButFreeInClaimAdvancement implements AdvancementCre
 
         advancement.setDisplay(x -> {
             x.setTitle("Aspiring Land Owner");
-            x.setDescription("You've stumbled a block that you could break... if you owned the place.");
+            x.setDescription("You've stumbled upon a block that you could break... if you owned the place.");
             x.setBackground(BackgroundType.STONE);
             x.setIcon(Material.ENCHANTED_BOOK);
         });
