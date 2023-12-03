@@ -200,7 +200,8 @@ public class B4BAdvancements extends JavaPlugin implements Listener {
         /*          */advManager.register(new PickupCactusAdvancement());
         /*      */advManager.register(new KillPolarBearGetIceAdvancement());
         /*        */advManager.register(new KillMooshroomGetStuffAdvancement());
-        /*          */advManager.register(new PickupValuableRandomDropAdvancement());
+        /*          */advManager.register(new KillPhantomGetElytraAdvancement());
+        /*            */advManager.register(new PickupValuableRandomDropAdvancement());
         /*      */advManager.register(new FishGetSpawnEggAdvancement());
         /*        */advManager.register(new FishGetRareStuffAdvancement());
         /*    */advManager.register(new BreakWithinGracePeriodAdvancement());

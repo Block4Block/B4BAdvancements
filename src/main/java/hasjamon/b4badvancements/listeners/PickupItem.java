@@ -3,6 +3,7 @@ package hasjamon.b4badvancements.listeners;
 import com.google.common.collect.Sets;
 import hasjamon.b4badvancements.B4BAdvancements;
 import hasjamon.b4badvancements.advancements.*;
+import hasjamon.block4block.utils.utils;
 import org.bukkit.Bukkit;
 import org.bukkit.Material;
 import org.bukkit.OfflinePlayer;
@@ -261,6 +262,11 @@ public class PickupItem implements Listener {
                 }
                 case SUGAR_CANE -> {
                     B4BAdvancements.awardCriteria(player, PickupSugarCaneAdvancement.ID, "0");
+                }
+                case ELYTRA -> {
+                    boolean killedPhantomRecently = System.nanoTime() - KillEntity.lastPhantomKill.getOrDefault(player, 0L) <= 3e10;
+                    if (utils.isPhantomElytra(itemStack) && killedPhantomRecently)
+                        B4BAdvancements.awardCriteria(player, KillPhantomGetElytraAdvancement.ID, "0");
                 }
             }
         }

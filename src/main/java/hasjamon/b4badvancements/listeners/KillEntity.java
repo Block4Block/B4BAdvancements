@@ -22,6 +22,7 @@ public class KillEntity implements Listener {
     public static Map<Player, Long> lastZombieKill = new HashMap<>();
     public static Map<Player, Long> lastWitchKill = new HashMap<>();
     public static Map<Player, Long> lastCreeperKill = new HashMap<>();
+    public static Map<Player, Long> lastPhantomKill = new HashMap<>();
 
     @EventHandler(priority = EventPriority.MONITOR, ignoreCancelled = true)
     public void onEntityDeath(EntityDeathEvent e) {
@@ -63,6 +64,9 @@ public class KillEntity implements Listener {
                 }
                 case CREEPER -> {
                     lastCreeperKill.put(killer, System.nanoTime());
+                }
+                case PHANTOM -> {
+                    lastPhantomKill.put(killer, System.nanoTime());
                 }
             }
         }

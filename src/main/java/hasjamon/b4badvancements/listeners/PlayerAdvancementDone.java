@@ -33,7 +33,8 @@ public class PlayerAdvancementDone implements Listener {
             case /*          */PickupCactusAdvancement.ID -> points = 5;
             case /*      */KillPolarBearGetIceAdvancement.ID -> points = 10;
             case /*        */KillMooshroomGetStuffAdvancement.ID -> points = 25;
-            case /*          */PickupValuableRandomDropAdvancement.ID -> points = 300;
+            case /*          */KillPhantomGetElytraAdvancement.ID -> points = 25;
+            case /*            */PickupValuableRandomDropAdvancement.ID -> points = 300;
             case /*      */FishGetSpawnEggAdvancement.ID -> points = 20;
             case /*        */FishGetRareStuffAdvancement.ID -> points = 50;
             case /*    */BreakWithinGracePeriodAdvancement.ID -> points = 1;
