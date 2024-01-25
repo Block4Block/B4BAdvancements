@@ -18,7 +18,7 @@ public class BlockBreakInClaimAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), ClaimChunkAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Reclaimed Rights");
-            x.setDescription("Break something for free inside your claim. (See list of free-to-break blocks in /b4bhelp).");
+            x.setDescription("Some blocks are free to break, if you have a claim. In this case, you do.");
             x.setIcon(Material.RED_BANNER);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

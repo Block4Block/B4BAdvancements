@@ -17,8 +17,8 @@ public class BreakCraftingTableFreelyAdvancement implements AdvancementCreator {
 
         advancement.setParent(new NamespacedKey(context.getPlugin(), BreakLeavesFreelyAdvancement.ID));
         advancement.setDisplay(x -> {
-            x.setTitle("iCraftyTable");
-            x.setDescription("Crafting on the go. (Crafting Tables are free to break, as are ores, beds, ladders, torches...)");
+            x.setTitle("MyCraft: Pocket Edition");
+            x.setDescription("Crafting on the go.");
             x.setIcon(Material.CRAFTING_TABLE);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

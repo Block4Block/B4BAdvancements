@@ -18,7 +18,7 @@ public class BreakWithinGracePeriodAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), B4BreakBlockFailAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("A Gracious Period");
-            x.setDescription("Break a newly placed block within the grace period to avoid spending a block.");
+            x.setDescription("Break a newly placed block within the grace period to avoid spending a block. (default: 5 sec.)");
             x.setIcon(Material.CLOCK);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

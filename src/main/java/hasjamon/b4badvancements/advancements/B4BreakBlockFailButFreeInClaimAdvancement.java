@@ -17,8 +17,8 @@ public class B4BreakBlockFailButFreeInClaimAdvancement implements AdvancementCre
         Advancement advancement = new Advancement(context.getPlugin(), ID);
 
         advancement.setDisplay(x -> {
-            x.setTitle("Aspiring Land Owner");
-            x.setDescription("You've stumbled upon a block that you could break... if you owned the place.");
+            x.setTitle("Unclaimed Property");
+            x.setDescription("Some blocks are free to break, if you have a claim. In this case, you do not.");
             x.setBackground(BackgroundType.STONE);
             x.setIcon(Material.ENCHANTED_BOOK);
         });

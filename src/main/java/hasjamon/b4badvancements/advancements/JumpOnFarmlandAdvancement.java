@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class JumpOnFarmlandAdvancement implements AdvancementCreator {
     public static final String ID = "b4b_jumponfarmland";
-
+// TODO : Remove JumpOnFarmlandAdvancement and adjust associated code. Triggered too often without proper player interaction and isn't a relevant dirtbreaking method anymore.
     @Override
     public @NotNull Advancement create(@NotNull Context context) {
         Advancement advancement = new Advancement(context.getPlugin(), ID);

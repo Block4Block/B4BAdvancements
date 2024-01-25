@@ -18,7 +18,7 @@ public class B4BreakDirtAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), KillPigGetDirtAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Dirtbreaker");
-            x.setDescription("Successfully break a dirt block by spending a dirt block from your hotbar.");
+            x.setDescription("Successfully break dirt by spending a dirt block from your hotbar.");
             x.setIcon(Material.IRON_SHOVEL);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

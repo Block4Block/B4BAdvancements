@@ -18,7 +18,7 @@ public class BreakLogsFreelyAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), B4BreakBlockFailAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Got to Break Tree");
-            x.setDescription("Logs are free to break! You better try every block!");
+            x.setDescription("Logs are free to break! You better try every block.");
             x.setIcon(Material.OAK_LOG);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

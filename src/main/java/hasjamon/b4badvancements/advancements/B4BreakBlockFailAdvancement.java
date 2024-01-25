@@ -18,7 +18,7 @@ public class B4BreakBlockFailAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), WelcomeMessageAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("A Block for a Block");
-            x.setDescription("You've stumbled upon a block you can't break without already having it!");
+            x.setDescription("Some blocks in the world requires you to spend a block to break them!");
             x.setIcon(Material.OAK_PLANKS);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

@@ -18,7 +18,7 @@ public class B4BreakStoneAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), KillSkeletonGetStoneAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Stonebreaker");
-            x.setDescription("Successfully break a stone block by spending a stone block from your hotbar.");
+            x.setDescription("Successfully break stone by spending a stone block from your hotbar.");
             x.setIcon(Material.STONE_PICKAXE);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

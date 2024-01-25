@@ -18,7 +18,7 @@ public class BreakLeavesFreelyAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), BreakLogsFreelyAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Leaf Me Alone");
-            x.setDescription("You've discovered that leaves are free to break. (As are ores, beds, crafting tables, torches...)");
+            x.setDescription("Leaves are free to break! You better try every block.");
             x.setIcon(Material.OAK_LEAVES);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

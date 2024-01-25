@@ -10,7 +10,7 @@ import org.jetbrains.annotations.NotNull;
 
 public class HelpCmdAdvancement implements AdvancementCreator {
     public static final String ID = "b4b_helpcmd";
-
+// TODO : Remove HelpCmdAdvancement and adjust associated code. Part of removing /b4bhelp.
     @Override
     public @NotNull Advancement create(@NotNull Context context) {
         Advancement advancement = new Advancement(context.getPlugin(), ID);
