@@ -6,7 +6,7 @@
 
     <groupId>hasjamon.b4badvancements</groupId>
     <artifactId>B4BAdvancements</artifactId>
-    <version>3.0</version>
+    <version>3.2</version>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>
