@@ -18,7 +18,7 @@ public class BreakBedFreelyAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), BreakCraftingTableFreelyAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Favourite Bed");
-            x.setDescription("I'm not getting a new one! I've finally gotten used to the mattress. (Also free to break: ores, torches...)");
+            x.setDescription("I'm not getting a new one! I've finally gotten used to the mattress.");
             x.setIcon(Material.BLUE_BED);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

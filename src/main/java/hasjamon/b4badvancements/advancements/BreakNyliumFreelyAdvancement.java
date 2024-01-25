@@ -18,7 +18,7 @@ public class BreakNyliumFreelyAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), BreakBedFreelyAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Breaking Nylium");
-            x.setDescription("Yup, both kinds of Nylium are free to break as well.");
+            x.setDescription("Both kinds of Nylium are free to break.");
             x.setIcon(Material.CRIMSON_NYLIUM);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});
