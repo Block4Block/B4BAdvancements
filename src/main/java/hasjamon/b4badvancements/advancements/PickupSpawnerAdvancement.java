@@ -18,7 +18,7 @@ public class PickupSpawnerAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), B4BreakStoneAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Spawner of Mobs");
-            x.setDescription("Break a Spawner using a pickaxe and pick it up.");
+            x.setDescription("Use a pickaxe to break a Spawner and pick it up.");
             x.setIcon(Material.SPAWNER);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

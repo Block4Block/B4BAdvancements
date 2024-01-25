@@ -18,7 +18,7 @@ public class PickupPumpkinAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), PickupMelonSliceAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Pumpkin Pusher");
-            x.setDescription("You picked up a pumpkin.");
+            x.setDescription("Pick up a Pumpkin after indirectly breaking it.");
             x.setIcon(Material.PUMPKIN);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

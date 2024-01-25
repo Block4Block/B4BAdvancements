@@ -18,7 +18,7 @@ public class PickupFallingBlockAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), KillPigGetDirtAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Torching Gravity");
-            x.setDescription("Obtain a falling block using a torch or any other block that will break a falling block on touch.");
+            x.setDescription("Pick up a falling block after indirectly breaking it.");
             x.setIcon(Material.SAND);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

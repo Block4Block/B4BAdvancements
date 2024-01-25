@@ -18,7 +18,7 @@ public class PickupCactusAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), PickupPumpkinAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Cactus Chopper");
-            x.setDescription("You picked up a cactus.");
+            x.setDescription("Pick up a Cactus after indirectly breaking it.");
             x.setIcon(Material.CACTUS);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

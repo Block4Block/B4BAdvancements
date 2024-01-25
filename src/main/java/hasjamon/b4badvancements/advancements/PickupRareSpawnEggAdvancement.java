@@ -18,7 +18,7 @@ public class PickupRareSpawnEggAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), PickupSpawnEggAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Eggcellent!");
-            x.setDescription("Pick up a rare spawn egg.");
+            x.setDescription("Pick up a rare spawn egg laid by a chicken.");
             x.setIcon(Material.WANDERING_TRADER_SPAWN_EGG);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

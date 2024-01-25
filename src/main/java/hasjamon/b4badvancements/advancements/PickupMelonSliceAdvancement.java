@@ -18,7 +18,7 @@ public class PickupMelonSliceAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), PickFlowerAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Whack a Melon");
-            x.setDescription("A piston pushed a melon and you grabbed a few slices.");
+            x.setDescription("Pick up a Melon Slice after indirectly breaking a Melon.");
             x.setIcon(Material.MELON);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

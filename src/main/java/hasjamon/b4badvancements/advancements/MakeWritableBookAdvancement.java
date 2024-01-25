@@ -18,7 +18,7 @@ public class MakeWritableBookAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), MakeBookAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Book'n'Quill");
-            x.setDescription("Make a Book & Quill! Check /b4bhelp to learn how to make a claim.");
+            x.setDescription("Make a Book & Quill!");
             x.setIcon(Material.WRITABLE_BOOK);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

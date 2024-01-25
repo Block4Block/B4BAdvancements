@@ -18,7 +18,7 @@ public class PickupSpawnEggAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), PickupFallingBlockAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Egguse me!?");
-            x.setDescription("Pick up any spawn egg. (Chickens sometimes lay spawn eggs)");
+            x.setDescription("Pick up any spawn egg laid by a chicken.");
             x.setIcon(Material.PIG_SPAWN_EGG);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

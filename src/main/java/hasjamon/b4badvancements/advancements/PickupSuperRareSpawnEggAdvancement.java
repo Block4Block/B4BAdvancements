@@ -18,7 +18,7 @@ public class PickupSuperRareSpawnEggAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), PickupRareSpawnEggAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Eggstraordinarily Eggstatic!");
-            x.setDescription("Pick up a super rare spawn egg.");
+            x.setDescription("Pick up a super rare spawn egg laid by a chicken.");
             x.setIcon(Material.ELDER_GUARDIAN_SPAWN_EGG);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});
