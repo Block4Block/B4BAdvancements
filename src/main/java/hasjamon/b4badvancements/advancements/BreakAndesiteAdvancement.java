@@ -18,7 +18,7 @@ public class BreakAndesiteAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), BreakBedFreelyAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("And The Side");
-            x.setDescription("Breaking andesite is sure to make quite a splash!");
+            x.setDescription("Surrounding Andesite blocks fracture when breaking Andesite.");
             x.setIcon(Material.ANDESITE);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});
