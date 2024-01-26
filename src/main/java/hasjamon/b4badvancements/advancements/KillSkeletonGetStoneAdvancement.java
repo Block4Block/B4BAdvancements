@@ -18,7 +18,7 @@ public class KillSkeletonGetStoneAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), KillZombieGetCharcoalAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Bones Made of Stone");
-            x.setDescription("Kill a Skeleton and loot some stone.");
+            x.setDescription("Obtain stone from a Skeleton.");
             x.setIcon(Material.STONE);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

@@ -18,7 +18,7 @@ public class KillMooshroomGetStuffAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), KillPolarBearGetIceAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("35 to 42 Days");
-            x.setDescription("Kill a Mooshroom and loot some mushrooms.");
+            x.setDescription("Obtain mushrooms from a Mooshroom.");
             x.setIcon(Material.RED_MUSHROOM);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

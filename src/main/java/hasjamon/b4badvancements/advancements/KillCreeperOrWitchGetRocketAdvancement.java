@@ -18,7 +18,7 @@ public class KillCreeperOrWitchGetRocketAdvancement implements AdvancementCreato
         advancement.setParent(new NamespacedKey(context.getPlugin(), KillZombieGetCharcoalAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Rocketpowered Creeps");
-            x.setDescription("Kill a Creeper or Witch and loot a Rocket.");
+            x.setDescription("Obtain a Rocket from a Creeper or a Witch.");
             x.setIcon(Material.FIREWORK_ROCKET);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

@@ -18,7 +18,7 @@ public class KillRaiderGetClayAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), PickupFallingBlockAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Clayment");
-            x.setDescription("Kill a Pillager, Ravager, Vindicator, Evoker, or Vex and loot some clay.");
+            x.setDescription("Obtain clay from a Pillager, Ravager, Vindicator, Evoker, or Vex.");
             x.setIcon(Material.CLAY);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

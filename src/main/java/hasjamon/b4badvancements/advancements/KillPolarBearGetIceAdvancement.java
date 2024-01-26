@@ -18,7 +18,7 @@ public class KillPolarBearGetIceAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), PickFlowerAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Ice Cold Murder");
-            x.setDescription("Kill a Polar Bear and loot some ice.");
+            x.setDescription("Obtain ice from a Polar Bear.");
             x.setIcon(Material.ICE);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

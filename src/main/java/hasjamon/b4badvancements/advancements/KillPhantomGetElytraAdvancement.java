@@ -18,7 +18,7 @@ public class KillPhantomGetElytraAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), KillMooshroomGetStuffAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Phantom Elytra");
-            x.setDescription("Kill a Phantom and loot a Phantom Elytra.");
+            x.setDescription("Obtain a Phantom Elytra from a Phantom.");
             x.setIcon(Material.ELYTRA);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

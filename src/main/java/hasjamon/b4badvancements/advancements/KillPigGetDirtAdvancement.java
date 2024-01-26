@@ -18,7 +18,7 @@ public class KillPigGetDirtAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), B4BreakBlockFailAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Dirty Pigs");
-            x.setDescription("Kill a Pig and loot some dirt.");
+            x.setDescription("Obtain dirt from a Pig.");
             x.setIcon(Material.DIRT);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

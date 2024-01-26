@@ -18,7 +18,7 @@ public class KillWitherSkeletonGetBlackstoneAdvancement implements AdvancementCr
         advancement.setParent(new NamespacedKey(context.getPlugin(), KillSkeletonGetStoneAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Wither Stone");
-            x.setDescription("Kill a Wither Skeleton and loot some Blackstone.");
+            x.setDescription("Obtain Blackstone from a Wither Skeleton.");
             x.setIcon(Material.BLACKSTONE);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

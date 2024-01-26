@@ -18,7 +18,7 @@ public class KillZombieGetCharcoalAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), B4BreakBlockFailAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Wooden Brain");
-            x.setDescription("Kill a Zombie and loot some Charcoal.");
+            x.setDescription("Obtain Charcoal form a Zombie.");
             x.setIcon(Material.CHARCOAL);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

@@ -18,7 +18,7 @@ public class KillEndMobGetEndItemAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), KillSkeletonGetStoneAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("End Game");
-            x.setDescription("Kill an End mob and loot some end stone or end rods.");
+            x.setDescription("Obtain end stone or end rods from an End mob.");
             x.setIcon(Material.END_STONE);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});
