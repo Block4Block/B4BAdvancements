@@ -17,7 +17,7 @@ public class PutMasterBookInEnderChestAdvancement implements AdvancementCreator 
 
         advancement.setParent(new NamespacedKey(context.getPlugin(), CopyMasterBookCopyAdvancement.ID));
         advancement.setDisplay(x -> {
-            x.setTitle("Safe at Last");
+            x.setTitle("Safekeeping");
             x.setDescription("Put an original Master Book in an Ender Chest.");
             x.setIcon(Material.ENDER_CHEST);
         });

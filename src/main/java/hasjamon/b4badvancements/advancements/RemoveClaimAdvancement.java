@@ -17,8 +17,8 @@ public class RemoveClaimAdvancement implements AdvancementCreator {
 
         advancement.setParent(new NamespacedKey(context.getPlugin(), FailBlockPlaceInClaimAdvancement.ID));
         advancement.setDisplay(x -> {
-            x.setTitle("Claim-jumper");
-            x.setDescription("Remove another player's claim by stealing the claim book or breaking the lectern.");
+            x.setTitle("Annexation");
+            x.setDescription("Steal the claim book or break the lectern of another player's claim.");
             x.setIcon(Material.WARPED_FENCE_GATE);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});
