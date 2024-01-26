@@ -18,7 +18,7 @@ public class BedCmdAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), HelpCmdAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Emergency Bed");
-            x.setDescription("Write in Chat /bed for a free bed available daily");
+            x.setDescription("Write '/bed' in Chat for a free bed, available once a day");
             x.setIcon(Material.WHITE_BED);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

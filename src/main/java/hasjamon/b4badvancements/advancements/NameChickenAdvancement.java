@@ -18,7 +18,7 @@ public class NameChickenAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), PickupSpawnEggAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Chicken Little");
-            x.setDescription("Name a chicken to give it an aura that buffs the rarity of Spawn Eggs by nearby chickens.");
+            x.setDescription("Name a chicken to buff nearby chickens' chance to lay Spawn Eggs.");
             x.setIcon(Material.NAME_TAG);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});

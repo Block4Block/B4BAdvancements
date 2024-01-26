@@ -18,7 +18,7 @@ public class FailBlockPlaceInClaimAdvancement implements AdvancementCreator {
         advancement.setParent(new NamespacedKey(context.getPlugin(), ClaimChunkAdvancement.ID));
         advancement.setDisplay(x -> {
             x.setTitle("Access Denied");
-            x.setDescription("Attempt to place a block inside a claim you are intruding on.");
+            x.setDescription("Attempt to place a block inside a claim you're intruding on.");
             x.setIcon(Material.WARPED_SIGN);
         });
         advancement.addCriteria("0", TriggerType.IMPOSSIBLE, trigger -> {});
